@@ -1,0 +1,37 @@
+# =========================
+# 1. Completely ignore these dirs
+# =========================
+manifest-repo
+venvs
+.vscode
+
+
+# =========================
+# 2. Keep dir but ignore its contents
+# =========================
+zephyr*
+!zephyr/.gitignore    	# Keep placeholder file
+
+apps*
+!apps/.gitignore   	# Keep placeholder file
+
+bootloader*
+!bootloader/.gitignore
+
+modules*
+!modules/.gitignore
+
+tools*
+!tools/.gitignore
+
+.venv
+!.venv/.gitignore
+
+.west
+!.west/.gitignore
+
+# =========================
+# 3. Allow full tracking for some dirs
+# =========================
+!docs/**
+
