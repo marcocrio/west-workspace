@@ -1,0 +1,47 @@
+# from repo root: create README.md
+@"
+# West Workspace — T2 Topology Template
+
+This repo is a **template** for a T2-style workspace: one root repo that keeps
+top-level folders visible while sourcing code from external repos.
+
+- `manifest-repo/` – manifests you use with west
+- `apps/`          – your application projects (ignored by default)
+- `modules/`       – extra modules (ignored by default)
+- `bootloader/`    – bootloader sources (ignored by default)
+- `tools/`         – tooling (ignored by default)
+- `.west/`         – west state/config (ignored by default)
+- `.venv/`         – Python environment (ignored by default)
+- `zephyr/`        – **submodule pointer** to the Zephyr repo (no files tracked here)
+
+## Getting started
+- Clone: \`git clone <this-repo>\`
+- If you see \`zephyr/\` as a submodule: \`git submodule update --init --recursive\`
+- Use \`west\` to fetch modules defined in your chosen manifest under \`manifest-repo/\`.
+
+## Tracking only what you want
+Folders like \`apps/\` and \`modules/\` are present but ignored. To track a
+specific project (e.g. \`apps/blinky\`) while leaving others ignored, see the
+note below.
+
+## Track only \`apps/blinky\` (keep the rest of \`apps/\` ignored)
+Edit \`apps/.gitignore\` to allow blinky:
+\`\`\`
+*
+!.gitignore
+!blinky/
+!blinky/**
+\`\`\`
+
+Then:
+\`\`\`
+git add apps/.gitignore
+git add -A apps/blinky
+git commit -m "Track apps/blinky; keep other apps ignored"
+git push
+\`\`\`
+"@ | Set-Content -Encoding utf8 README.md
+
+git add README.md
+git commit -m "Add README: T2 template, submodule pointer, selective tracking"
+git push
