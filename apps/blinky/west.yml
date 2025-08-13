@@ -1,0 +1,16 @@
+manifest:
+  defaults:
+    remote: zephyrproject
+
+  remotes:
+    - name: zephyrproject
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      path: zephyr
+      revision: main
+      west-commands: scripts/west-commands.yml
+
+  self:
+    path: blinky

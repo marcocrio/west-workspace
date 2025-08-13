@@ -5,13 +5,14 @@ manifest-repo
 venvs
 .vscode
 
-
 # =========================
 # 2. Keep dir but ignore its contents
 # =========================
 # apps
 apps/**
 !apps/.gitignore
+!apps/blinky/
+!apps/blinky/**
 
 # bootloader
 bootloader/**
@@ -33,9 +34,7 @@ tools/**
 .venv/**
 !.venv/.gitignore
 
-
 # =========================
 # 3. Allow full tracking for some dirs
 # =========================
 !docs/**
-
